@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<invoice>
+	<company_name>Cypefinland</company_name>
+	<invoice_number>100</invoice_number>
+	<invoice_date>2021-03-02</invoice_date>
+	<items_purchased>
+		<Book>
+			<quantity>1</quantity>
+			<ucost>50</ucost>
+			<UTotal>50</UTotal>
+		</Book>
+		<Phone>
+			<quantity>3</quantity>
+			<ucost>100</ucost>
+			<UTotal>300</UTotal>
+		</Phone>
+		<Pencils>
+			<quantity>4</quantity>
+			<ucost>25</ucost>
+			<UTotal>100</UTotal>
+		</Pencils>
+	</items_purchased>
+	<Total_Due>500</Total_Due>
+</invoice>
