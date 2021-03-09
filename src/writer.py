@@ -1,6 +1,7 @@
 import json
 from dicttoxml import dicttoxml
 from xml.dom.minidom import parseString
+import os
 
 
 def write(data, format):
@@ -11,14 +12,15 @@ def write(data, format):
     Returns the response which has been writen to the file.
     """
     assert format == "json" or format == "xml"
+    parent_dir = os.path.dirname(__file__)
     if format == "json":
-        receipt_json = json.dumps(data, separators=(',', ': '), indent=4)
-        with open("invoice.json", "wt") as json_file:
-            json_file.write(receipt_json)
-        return receipt_json
+        response_json = json.dumps(data, separators=(',', ': '), indent=4)
+        with open(os.path.join(parent_dir, "output", "invoice.json"), "wt") as json_file:
+            json_file.write(response_json)
+        return response_json
     else:
         raw_xml = dicttoxml(data, custom_root="invoice", attr_type=False)
-        receipt_xml = parseString(raw_xml).toprettyxml()
-        with open("invoice.xml", "wt") as xml_file:
-            xml_file.write(receipt_xml)
-        return receipt_xml
+        response_xml = parseString(raw_xml).toprettyxml()
+        with open(os.path.join(parent_dir, "output", "invoice.xml"), "wt") as xml_file:
+            xml_file.write(response_xml)
+        return response_xml
