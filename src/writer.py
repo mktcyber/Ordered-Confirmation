@@ -4,6 +4,12 @@ from xml.dom.minidom import parseString
 
 
 def write(data, format):
+    """
+    Writes the given data into a file in the directory from which this call was made.
+    Where data must be a dictionary; and format must be either "json", or "xml".
+
+    Returns the response which has been writen to the file.
+    """
     assert format == "json" or format == "xml"
     if format == "json":
         receipt_json = json.dumps(data, separators=(',', ': '), indent=4)

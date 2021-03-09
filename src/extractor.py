@@ -8,6 +8,13 @@ except ImportError:
 
 
 def extract_text_as_dict(file_name):
+    """
+    Extracts the text from the file at the given file_name, and returns a dictionary
+    containing the recognizable data-fields with their coreeponding values.
+
+    First, converts the PDF file into an image.
+    If the file has more than one page, an AssertioError will be raised.
+    """
     pages = pdf2image.convert_from_path(pdf_path=file_name, dpi=200, size=(1654,2340))
     assert len(pages) == 1
     pages[0].save('sample.jpg')
